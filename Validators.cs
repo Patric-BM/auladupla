@@ -75,6 +75,23 @@ namespace EmployeesManagement
             return choice;
         }
 
+        public static int ValidateEmployeeId(string id)
+        {
+            int employeeId = int.TryParse(id, out int result) ? result : 0;
+
+            foreach (Employee employee in Company.employees)
+            {
+                if (employee.EmployeeId == employeeId)
+                    throw new ArgumentException("Já existe um funcionário com essa matrícula.");
+            }
+            if (employeeId.GetType() != typeof(int))
+                throw new ArgumentException("A matrícula deve ser um número inteiro.");
+            if (employeeId < 0)
+                throw new ArgumentException("A matrícula deve ser um número positivo.");
+
+            return employeeId;
+        }
+
         
 
 

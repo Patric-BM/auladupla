@@ -12,6 +12,7 @@ namespace EmployeesManagement
             DateTime birthDate;
             decimal actualSalary;
             double percentIncrease;
+            int employeeId;
 
             Company company = new Company();
 
@@ -50,6 +51,9 @@ namespace EmployeesManagement
                                     // Adicionada a inserção do Salário em decimal
                                     Console.WriteLine("\nInforme o Salário do funcionário:");
                                     actualSalary = Validators.ValidateSalary(Console.ReadLine());
+
+                                    Console.WriteLine("\nInforme o número de matrícula do funcionário:");
+                                    employeeId = Validators.ValidateEmployeeId(Console.ReadLine());
 
                                     Employee employee = new Employee(name, lastName, age, birthDate, actualSalary);
                                     company.AddEmployee(employee);

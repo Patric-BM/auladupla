@@ -8,7 +8,7 @@ namespace EmployeesManagement
         private decimal _monthlySalary;
         public string FirstName { get; set; }
         public string LastName { get; set; }
-        private int EmployeeId = new Random().Next(1000, 9999);
+        public int EmployeeId { get; set; } 
         public int Age { get; set; }
         public decimal actualSalary { get; set; }
         public DateTime DateOfBirth { get; set; }

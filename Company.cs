@@ -5,7 +5,7 @@ namespace EmployeesManagement
 {
     public class Company
     {
-        private List<Employee> employees = new List<Employee>();
+        public static List<Employee> employees { get; private set; } = new List<Employee>();
         private DateTime employeeHireDate;
 
         public void AddEmployee(Employee employee)
