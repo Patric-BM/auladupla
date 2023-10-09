@@ -50,8 +50,10 @@ namespace EmployeesManagement
 
         public static decimal ValidateSalary(string MySalary)
         {
+        
+
             //Inserido validação para ser digitado um numero e por padrão o salário é 0
-            decimal Salary = decimal.TryParse(MySalary, out decimal result) ? result : 0;
+            decimal Salary = decimal.TryParse(MySalary.Trim(), out decimal result) ? result : 0;
             
             //Inserido validação para ser digitado um numero
             if (typeof(decimal) != Salary.GetType())
@@ -77,7 +79,10 @@ namespace EmployeesManagement
 
         public static int ValidateEmployeeId(string id)
         {
-            int employeeId = int.TryParse(id, out int result) ? result : 0;
+            if (string.IsNullOrEmpty(id) || string.IsNullOrWhiteSpace(id))
+                throw new ArgumentException("A matrícula não pode ser vazia.");
+                
+            int employeeId = int.TryParse(id.Trim(), out int result) ? result : 0;
 
             foreach (Employee employee in Company.employees)
             {
