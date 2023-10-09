@@ -26,13 +26,14 @@ namespace EmployeesManagement
 
         public static decimal MinimumSalary = 1320.00m;
 
-        public Employee(string firstName, string lastName, int age, DateTime dateOfBirth, decimal actualSalary)
+        public Employee(string firstName, string lastName, int age, DateTime dateOfBirth, decimal actualSalary, int employeeId)
         {
             FirstName = firstName;
             LastName = lastName;
             Age = age;
             DateOfBirth = dateOfBirth;
             MonthlySalary = actualSalary;
+            EmployeeId = employeeId;
         }
 
         public decimal CalculateAnnualSalary()
