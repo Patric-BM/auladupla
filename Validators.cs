@@ -7,6 +7,7 @@ namespace EmployeesManagement
     {
         public static string ValidateName(string name)
         {
+            
             if (typeof(string) != name.GetType())
                 throw new ArgumentException("O nome deve ser uma string.");
 
@@ -21,7 +22,8 @@ namespace EmployeesManagement
 
         public static int ValidateAge(int age)
         {
-            if (age <= 18)
+            //Troca da idade que estava <= 18
+            if (age < 18)
                 throw new ArgumentException("O funcionário deve ser maior de idade.");
 
             return age;
@@ -51,19 +53,30 @@ namespace EmployeesManagement
             return percentageIncrease;
         }
 
-        public static decimal ValidateSalary(decimal salary)
+        public static decimal ValidateSalary(decimal Salary)
         {
-            if (salary < Employee.MinimumSalary)
-                throw new ArgumentException($"O salário não pode ser menor do que: {Employee.MinimumSalary}.");
+            //Inserido validação para ser digitado um numero
+            if (typeof(decimal) != Salary.GetType())
+                throw new ArgumentException("O nome deve ser um numero válido.");
 
-            return salary;
+            //inserido validação para salário negativo
+            if (Salary <= 0)
+                throw new ArgumentException($"\nO salário não pode ser negativo");
+
+            if (Salary < Employee.MinimumSalary)
+                Salary = Employee.MinimumSalary;
+
+
+            //Deixei comentado abaixo pois o WriteLine ta duplicando as linhas e não entendi o pq, e a excessão ja fecha o programa.
+            //throw new Exception($"O salário não pode ser menor do que: {Employee.MinimumSalary},o mesmo será modificado pelo Salário Mínimo");
+            //Console.WriteLine("\nSalário inserido menor que o Salário Mínimo, o mesmo será modificado para o salário minimo");
+
+            return Salary;
         }
 
         public static int ValidateChoice(int choice)
         {
          
-
-            
             if (choice < 1 || choice > 6)
                 throw new Exception("a escolha deve ser entre 1 e 6.");
 

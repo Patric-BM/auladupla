@@ -10,6 +10,7 @@ namespace EmployeesManagement
         public string LastName { get; set; }
         public int EmployeeId { get; set; }
         public int Age { get; set; }
+        public decimal actualSalary { get; set; }
         public DateTime DateOfBirth { get; set; }
         public DateTime HireDate { get; set; }
 
@@ -25,13 +26,13 @@ namespace EmployeesManagement
 
         public static decimal MinimumSalary = 1000.00m;
 
-        public Employee(string firstName, string lastName, int age, DateTime dateOfBirth)
+        public Employee(string firstName, string lastName, int age, DateTime dateOfBirth, decimal actualSalary)
         {
             FirstName = firstName;
             LastName = lastName;
             Age = age;
             DateOfBirth = dateOfBirth;
-            MonthlySalary = MinimumSalary;
+            MonthlySalary = actualSalary;
         }
 
         public decimal CalculateAnnualSalary()
@@ -39,9 +40,10 @@ namespace EmployeesManagement
             return MonthlySalary * 12;
         }
 
-        public void Promote(decimal percentageIncrease = 10)
+        public void Promote(decimal percentageIncrease)
         {
-            MonthlySalary += MonthlySalary * (percentageIncrease / 100);
+            //Arrumada a porcentagem para soma onde o aumento é somente 10%
+            MonthlySalary += MonthlySalary / 10;
         }
 
         public override string ToString()
