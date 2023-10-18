@@ -51,10 +51,10 @@ class Program
 
 
         Aluno patric = new Aluno("Patric", 30);
-        Aluno beatriz = new Aluno("Beatriz", 27);
+        Aluno miguel = new Aluno("miguel", 30);
 
         patric.MatricularEmCurso(engenharia);
-        beatriz.MatricularEmCurso(biomedicina);
+        miguel.MatricularEmCurso(biomedicina);
 
         engenharia.ListarCursosEDisciplinas();
         biomedicina.ListarCursosEDisciplinas();
